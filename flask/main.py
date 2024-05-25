@@ -9,26 +9,15 @@ from flask.cli import AppGroup
 from __init__ import app, db, login_manager  # Key Flask objects 
 
 # API endpoints
-from api.players import player_api
-from api.monte_carlo_controller import monte_carlo_api
 from api.user import user_api
 # database Initialization functions
-from model.jokes import initJokes
 from model.users import User, initUsers
 # server only Views
-from views.algorithm.algorithm import algorithm_views 
-from views.projects.projects import project_views
-
 # Initialize the SQLAlchemy object to work with the Flask app instance
 db.init_app(app)
 
 # register URIs for api endpoints
-app.register_blueprint(player_api)
-app.register_blueprint(monte_carlo_api)
 app.register_blueprint(user_api)
-# register URIs for server pages
-app.register_blueprint(algorithm_views) 
-app.register_blueprint(project_views) 
 
 @login_manager.user_loader
 def load_user(user_id):
