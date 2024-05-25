@@ -81,7 +81,6 @@ custom_cli = AppGroup('custom', help='Custom commands')
 # Define a command to run the data generation functions
 @custom_cli.command('generate_data')
 def generate_data():
-    initJokes()
     initUsers()
 
 # Register the custom command group with the Flask application
